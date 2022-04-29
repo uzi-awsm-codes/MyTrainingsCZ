@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration Page</title>
+</head>
+<body>
+<form method="post" action="RegisterServlet">
+User Name<input type="text"  name="username"/><br>
+Address<textarea rows="3" cols="30" name="address"></textarea><br>
+Country<select name="country">
+<option value="India">India</option>
+<option value="US">US</option>
+<option value="UK">UK</option>
+</select><br>
+Gender <input type="radio" value="male" name="gender">Male
+<input type="radio" value="female" name="gender">Female<br>
+Skill <input type="checkbox" value="Java" name="skill">Java
+<input type="checkbox" value="Spring" name="skill">Spring
+<input type="checkbox" value="MicroServices" name="skill">MicroServices
+<input type="checkbox" value="Hibernate" name="skill">Hibernate<br>
+<input type="submit" value="Register"/>
+<input type="reset" value="Clear"/>
+</form>
+</body>
+</html>

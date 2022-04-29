@@ -1,0 +1,556 @@
+  \documentclass[a4paper,12pt]{report}
+\renewcommand{\baselinestretch}{1.5}
+\usepackage{array}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{csquotes}
+\usepackage{etoolbox}
+\usepackage{graphicx}
+
+\usepackage{array}
+\usepackage{tocloft}
+\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\let\origdoublepage\cleardoublepage
+\renewcommand{\cleardoublepage}{%
+	\clearpage
+	{\pagestyle{empty}\origdoublepage}%
+}
+	\pagenumbering{roman}
+\begin{document}
+	\begin{center}
+		\section*{Acknowledgement}
+	\end{center}
+	\paragraph{}
+	\onehalfspacing
+	At the outset I express my most sincere grateful thanks to my Seminar Guide and Project Cordinator, 
+	\textbf{Mr.Annaiah H}, Assistant Professor, Department of CS \& E,
+	for his continuous support and advice not only during the course of  seminar but also during the period of my stay in GECH.\\
+	
+	\onehalfspacing
+I express my gratitude to \textbf{Dr.Raghu M E}, Professor and Head of the Department of CS \& E, for his encouragement and support throughout the	work.\\
+	
+	\onehalfspacing
+	I wish to express thanks to our beloved Principal, \textbf{Dr.K C Ravishankar}, for encouragement throughout my studies.\\
+	
+	Finally, I express my gratitude to all teaching and non-teaching staff of Department of CS \& E, my fellow classmates and my parents for their	timely support and suggestions.\parskip 1.5ex
+	\vspace{1in}\\
+	\vspace{1.75mm}
+	Sujan R (4GH17CS056)\\
+	
+	
+	
+	\cleardoublepage
+
+	
+	\tableofcontents
+	
+	\newpage
+	\listoffigures
+	\addcontentsline{toc}{chapter}{List Of Figures}
+	\newpage
+
+	\begin{center}
+		\section*{Abstract}
+		\addcontentsline{toc}{chapter}{Abstract}
+	\end{center}
+	\paragraph{}
+	\onehalfspacing
+	{\fontfamily{ptm}}
+The aid of genetic algorithm and fuzzy theory, we present a hybrid job scheduling approach, which considers the load balancing of the system and reduces total execution time and execution cost.We try to modify the standard Genetic algorithm and to reduce the iteration of creating population with the aid of fuzzy theory. The main goal of this research is to assign the jobs to the resources with considering the VM MIPS and length of jobs. The new algorithm assigns the jobs to the resources with considering the job length and resources capacities. We evaluate the performance of our approach with some famous cloud scheduling models. The results of the experiments show the efficiency of the proposed approach in term of execution time, execution cost and average Degree of Imbalance (DI).
+
+
+
+	
+	
+\chapter{Introduction}
+\pagestyle{fancy}
+%\fancyhf{}
+\rhead{2019-20}
+\lhead{Hybrid Job scheduling Algorithm for Cloud computing}
+\lfoot{Dept of CSE, GEC, Hassan}
+\rfoot{ \thepage}
+\cfoot{ }
+\renewcommand{\headrulewidth}{2pt}
+\renewcommand{\footrulewidth}{1pt}
+\pagenumbering{arabic}
+\patchcmd{\chapter}
+{\clearpage}
+{\cleardoublepage}
+
+\paragraph{}
+{\fontfamily{ptm}
+	\linespread{1.5}
+	
+	Cloud computing is composed of distributed computing, grid computing, utility computing, and autonomic computing.In cloud computing, users do not know where the services located in which part of the infrastructure.In cloud computing, users do not know
+	where the services located in which part of the infrastructure. The users only use the services through the cloud infrastructure paradigm and pay for the requested services.
+	
+	Scheduling algorithms are used mainly to minimize the execution time and execution cost. Scheduling, handles the problem of which resources needed to be assigned for
+	the received job. A good scheduling algorithm should consider the load balancing of the system and total execution time of the available resources. In one hand, it should reduce the execution time and from the other hand, it should reduce the execution time.
+	For achieving both of them it is better not to waste the resources with high capacities to the jobs with low length. The scheduler should assign the jobs to the resources according to the job length and resources capacities.
+	
+	
+	Genetic algorithm and fuzzy theory are two famous artificial intelligence approaches which are used.Genetic
+	algorithm starts with a set of chromosomes called population. Then with the usage of a fitness function the fitness value of the chromosomes are calculated. After that the best two chromosomes are selected and then the crossover operation is done. After mutates the new child at some positions Finally the algorithm adds the new chromosome to the population.
+	
+	Fuzzy theory is a logic which is less severe than the computation computers usually perform. In recent years fuzzy logic has been used in distributed systems like grid and cloud not only for scheduling.Fuzzy Logic manages the examination of
+	knowledge by utilizing fuzzy sets, each of which can show alinguistic phrase such as “Bad”, “Medium”, etc.In the proposed approach with the aid of fuzzy theory, we try to modify the genetic
+	algorithm; we use fuzzy system in fitness step and cross over step. The goal of using fuzzy theory in genetic algorithm is to reduce the iteration of producing the population and assigning the suitable resources to the jobs based in the node capacities and length of the jobs. The new algorithm obtains the best chromosomes in a few iterations.
+	
+	
+	
+	
+	
+	
+	
+	\section{Genetic Algorithm}
+	\paragraph{}
+	{\fontfamily{ptm}
+		
+		\linespread{1.5}
+		Selection of the optimal parameters for machine learning tasks is challenging. Some results may be bad not because the data is noisy or the used learning algorithm is weak, but due to the bad selection of the parameters values. This article gives a brief introduction about evolutionary algorithms (EAs) and describes genetic algorithm (GA) which is one of the simplest random-based EAs.\parskip 1.5ex
+		
+		suppose that a data scientist has an image dataset divided into a number of classes and an image classifier is to be created. After the data scientist investigated the dataset, the K-nearest neighbor (KNN) seems to be a good option. To use the KNN algorithm, there is an important parameter to use which is K. Suppose that an initial value of 3 is selected. The scientist starts the learning process of the KNN algorithm with the selected K=3. The trained model generated reached a classification accuracy of 85\%. Is that percent acceptable? In another way, can we get a better classification accuracy than what we currently reached? We cannot say that 85\% is the best accuracy to reach until conducting different experiments. But to do another experiment, we definitely must change something in the experiment such as changing the K value used in the KNN algorithm. We cannot definitely say 3 is the best value to use in this experiment unless trying to apply different values for K and noticing how the classification accuracy varies. The question is “how to find the best value for K that maximizes the classification performance?” This is what is called optimization.
+		
+		
+		
+		Crossover in GA generates new generation the same as natural mutation. By mutating the old generation parents, the new generation offspring comes by carrying genes from both parents. The amount of genes carried from each parent is random. Remember that GA is random-based EA. Sometimes the offspring takes half of its genes from one parent and the other half from the other parent and sometimes such percent changes. For every two parents, crossover takes place by selecting a random point in the chromosome and exchanging genes before and after such point from its parents. The resulting chromosomes are offspring. Thus operator is called single-point crossover.
+		
+			\begin{figure}[h]
+			\begin{center}
+				\includegraphics[scale=0.50]{cross.jpg}\\
+			\end{center}
+			\caption{ Crossover operation}
+		\end{figure}
+		
+		
+\par		Mutation operators include ,First we choose a mutation position, and then exchange its value with a randomly selected gene. The values of the two positions should not be the same, otherwise select another position.
+		
+		
+			\begin{figure}[h]
+			\begin{center}
+				\includegraphics[scale=0.30]{mutation.jpg}\\
+			\end{center}
+			\caption{ Mutation operation}
+		\end{figure}
+	
+
+	
+	
+	\pagebreak
+	
+			
+			
+		\subsection{Evolutionary Algorithms (Eas)}
+		\paragraph{}
+		{\fontfamily{ptm}
+			
+			\linespread{1.5}
+			We can say that optimization is performed using evolutionary algorithms (EAs). The difference between traditional algorithms and EAs is that EAs are not static but dynamic as they can evolve over time.
+			
+			
+			
+			
+			
+			Evolutionary algorithms have three main characteristics:
+			\begin{itemize}
+				
+				
+				\item \textbf{Fitness-Oriented:} If there are some several solutions, how to say that one solution is better than another? There is a fitness value associated with each individual solution calculated from a fitness function. Such fitness value reflects how good the solution .
+				\item \textbf{Variation-Driven: }If there is no acceptable solution in the current population according to the fitness function calculated from each individual, we should make something to generate new better solutions. As a result, individual solutions will undergo a number of variations to generate new solutions. 
+				\item \textbf{Population-Based:} Evolutionary algorithms are to optimize a process in which current solutions are bad to generate new better solutions. The set of current solutions from which new solutions are to be generated is called the population.
+				\par The AC
+				problem is converted to genetic logic in such a way that
+				sessions correspond to individual elements of the initial
+				chromosome. This algorithm uses one generation of 50
+				offspring. This new generation consists of initial chromo-
+				some and new chromosomes that are generated by the
+				mutation process (The individual elements of the initial
+				chromosome are randomly mutated.). The best chromo-
+				some is chosen by using the fit function. The layout of
+				accepted, rejected and dropped sessions corresponds with
+				the structure of selected chromosome.
+				
+			\vspace{40.0}
+			
+		\par	A model of a schedule can have the following inputs: \\(i) job and operation identification; \\(ii) machines required by operations;\\ (iii) processing time of each operation; \\(iv) precedence constraints; \\(v) job weights in respect of weighted objective function.
+		
+		\subsection{	The sequence optimisation genetic algorithm}
+	
+		
+		First, an initial population of randomly generated sequences of the tasks in the schedule is created. These individual schedules form chromosomes which are to be subjected to a form of Darwinian evolution. The size of the population is user-defined and the fitness of each individual schedule in the population is calculated according to a user defined fitness function such as: total makespan, mean tardiness, maximum tardiness, number of tardy job. The schedules are then ranked according to the value of their fitness function. Once an initial population has been formed, selection, crossover and mutation operations are repeatedly performed until the fittest member of the evolving population converges to an optimal fitness value. Alternatively, the GA may run for a user defined number of iterations. The selection process consists of selecting a pair of parents from the current population using a rank based mechanism to control the probability of selection. These parents then mate to produce a child by applying the uniform order based crossover operator. This is based on using a randomly generated bit string template to determine for each parent which genes are carried forward into their child. It is defined as follows:
+		
+		Given parent-1 and parent-2, create child in this way:
+		
+		a.Generate bit string that is the same length as the parents.
+		\\b.Fill in some of the positions on the child by copying them from parent-1 wherever the bit string contains “1”.
+		\\c.Make a list of the genes from parent-1 associated with a “0” in the bit string.
+		\\d.Permute these genes so that they appear in the same order they appear in parent-2.
+		\\e.Fill these permuted genes in the gaps in child in the order generated in iv.
+		\\			
+		
+		\subsection{Schedule chromosomes and the crossover operator}
+			
+		\begin{figure}[h]
+			\begin{center}
+				\includegraphics[scale=0.70]{a.png}\\
+			\end{center}
+			\caption{ chromosomes and the crossover operator}
+		\end{figure}
+		
+		\par The particular mutation operation used here is order-based mutation. In this operation two jobs change positions in the chromosome. The probability that a job is mutated is defined by the user defined mutation rate which lies in the range 0–1. The purpose of mutation is to ensure that diversity is maintained within the population. It gives random movement about the search space thus preventing the GA becoming trapped in blind corners or local optima. Finally, the new child schedule replaces the weakest schedule in the current pool or population of schedules. In this type of mutation two genes are randomly selected and their positions are interchanged as shown in Table.
+		
+			
+		\begin{figure}[h]
+			\begin{center}
+				\includegraphics[scale=0.70]{b.png}\\
+			\end{center}
+			\caption{Order-based mutation}
+		\end{figure}
+		
+	\par	The order-based crossover and mutation generally work better than one and two-point. They are more effective at combining schemata than either one or two point crossover. Empirically, order-based crossover and mutation are shown to be more effective on a variety of function optimisation problems. In this paper one child is formed by taking a mixture of bits from its two parents according to a random bit string. The proportion of bits coming from the best parent is defined by the user-defined crossover rate in the range zero to one.
+		
+		
+				\caption\textbf{Algorithm:}\\
+				GA()\\
+				initialize population\\
+				find fitness of population\\
+				while (termination criteria is reached) do\\
+				parent selection\\
+				crossover with probability pc\\
+				mutation with probability pm\\
+				decode and fitness calculation\\
+				survivor selection\\
+				find best\\
+				return best\\
+				
+				
+				
+				
+				\pagebreak
+				
+				\begin{figure}[h]
+					\begin{center}
+						\includegraphics[scale=0.70]{gaflow.png}\\
+					\end{center}
+					\caption{ Flowchart}
+				\end{figure}
+				
+			\end{itemize}
+		
+			\pagebreak
+				\begin{figure}[h]
+				\begin{center}
+					\includegraphics[scale=0.90]{b.jpg}\\
+				\end{center}
+				\caption{ The genetic algorithm }
+			\end{figure}
+			
+		\end{itemize}
+			
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+		\section{ Fuzzy Algorithm}
+	\paragraph{}
+	{\fontfamily{ptm}
+		
+		\linespread{1.5}
+	Job scheduling involves allocation of resources and time to jobs in such a way that certain performance requirements are met. Many researches consider different issues of theoretical or practical nature that appears in job scheduling. In jobs scheduling problem, a set of jobs, where each job consists of a chain of operations, has to be processed on a machine. Machine can process one operation at a time. Operations need to be processed during an uninterrupted period of a given length on the given machine. The aim is to equally determine job processing priority on a machine in such a way that maximizing machine utilization while minimizing the total jobs throughput time. This can be achieved by analyzing job factors to determine its processing priority while there are other jobs waiting to be processed. Jobs can be classified as periodic or non-periodic. A periodic job is a kind of job that occurs at regular intervals. The length of the time interval between the arrivals of two consecutive requests in a periodic job is called period. On the other hand, non-periodic job occurs randomly. A scheduling system must react to the requests within a fixed amount of time which is called deadline. In general, real-time systems can be categorized into two important groups: hard real-time systems and soft real-time systems.
+	\par In hard real-time systems, meeting all deadlines is obligatory, while in soft real-time systems missing some deadlines is tolerable. In both cases, when a new job arrives, the scheduler is to schedule it in such a way that guaranties the deadline to be met. Job scheduling in general is an attractive issue for many researchers. Real-time scheduling systems are vital to industrialized infrastructure such as command and control, process control, flight control, and air trafic control systems . In all cases, processing time has an essential function and having the right response too late is as bad as not having it at all.
+	To build a fuzzy system, inputs and output to it must be first selected. After that, they must be partitioned into appropriate conceptual categories which actually represents a fuzzy set on a given input or output domain. The conceptual partitions developed for the input and output dimensions are used to create a fuzzy rule set which determines the behavior of the fuzzy system being constructed. Changing the input variables causes the corresponding membership functions to be changed accordingly. (FIS) are conceptually very simple. They consist of an input, a processing, and an output stage. The input stage maps the inputs to the appropriate membership functions and truth values. The processing stage invokes each appropriate rule and generates a corresponding result. It then combines the results. Finally, the output stage converts the combined result back into a specific output value.\parskip 1.5ex
+
+	\paragraph{} A fuzzy logic based algorithms (that are presented
+there) are based on. There are three versions of fuzzy
+AC, which use different input parameters.
+ A fuzzy logic based algorithms (that are presented
+there) are based on. There are three versions of fuzzy
+AC, which use different input parameters.
+\vspace{20}
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[scale=0.19]{index.png}\\
+	\end{center}
+\end{figure}
+\vspace{70}
+\par	This figure shows basic block scheme of fuzzy logic
+based AC algorithms
+\par This algorithm uses only three input variables: voice activity factor vf, which enables distinguishing between voice and data sessions, speed of user SF, and total uplink load factor UL.
+		
+\pagebreak
+ 
+		\linespread{1.5}
+		
+		 Algorithm:
+		
+	Step 1: Define the input and output variables, respectively the
+	number of requests that received in host from virtual
+	machines and the value of tasks precedence that run
+	on each virtual machine are as inputs and the virtual
+	machine id that must assigned to the host is as the
+	output.
+	
+	Step2: Each variable quantified, for instance the AGE
+	because is requests that sent to the host and set to 0, 1,
+	2 and 3 (four virtual machines), it quantified as Zero,
+	Small, Medium and Big. Each quantification of the
+	variable is assigned a membership function . Membership function for cost is
+	chosen to be singletons.
+	
+	Step3: A fuzzy rule base designed. These rule bases
+	determine what action take place under what input
+	conditions. The rules are written in if-then formats.
+	
+	Step4: A defuzzification method is applied to the fuzzy control
+	action to produce a crisp cost. We use one of the
+	famous defuzzification method "centers of gravity" to
+	produce a crisp output.
+	
+	Step5: The virtual machine id with the low cost of AGE and
+	PREC values is selected for output to access to the host.
+		
+			\pagebreak
+	
+		\begin{figure}[h]
+			\begin{center}
+				\includegraphics[scale=0.60]{fflow.png}\\
+			\end{center}
+			\caption{ Flowchart}
+		\end{figure}
+			
+		
+	\pagebreak
+	\subsection{Dynamic Resource Scheduling Based on Fuzzy logic}
+	\par For cloud computing data centers, fuzzy equivalence classes can effectively improve friendliness and resource utilization of cloud computing.By understanding user’s
+	fuzzy requirements, the resources can be allocated according to the execution effect.
+	In virtual machine
+	workload types and the migration time of virtual machines
+	were predicted based on fuzzy prediction method, and
+	finally resources automatic allocation take place.
+\par The data center and the resource
+requirements of the users, the data centre defines the symbol
+as positive or negative in accordance with the increasing
+or decreasing of virtual machine resources. The input vari-
+ables are the tasks’ requirements for resources and available
+resources of users’ virtual machines, respectively. The output
+variables are the resources that need to be increased to or
+decreased from the corresponding virtual machines.		
+The input variables and output variables are
+described as Positive Big, Positive Middle, Positive Small,
+Zero, Negative Small, Negative Middle, and Negative Big and abbreviated as PB, PM, PS, ZO,
+NS, NM, and NB.Correspondingly,
+according to the number of resources to be scheduled, it is
+defined as Positive Big, Positive Middle, Positive Small, Zero,Negative Small, Negative Middle, and Negative Big, which
+can be abbreviated to PB, PM, PS, ZO, NS, NM, and NB.
+\par Initialize the virtual machines of data centre. Based
+on the prediction values of resources user demands, prede-
+termine the amount of resources of the virtual machines, and
+make resource availability fuzzy classification.
+Then establish the fuzzy control rule base and
+ Join the task that each user submitted into FCFS
+scheduling queue; then the scheduler gets the corresponding
+task.
+ According to different resource demands of the
+selected tasks, make fuzzy classification for those resource
+demands.
+ According to the level of resource requirement and
+resource availability of current virtual machine, use fuzzy
+logic to infer whether the current virtual machine can meet
+the resource requirements of the task or not.  Use fuzzy control system to schedule resource dynam-
+ically according to the resource demand level. After reaching
+the standard, the virtual machine processes the tasks. Then
+the goal that not only meets the task requirements for
+resources but also avoids resource waste is achieved.
+Confirm that all tasks have been completed. If there
+are uncompleted tasks, repeat the things again untill completion.	
+
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[scale=0.50]{case.png}\\
+	\end{center}
+	\caption{ Resource scheduling process based on fuzzy logic.}
+\end{figure}	.
+		 
+\pagebreak
+		    \subsection{Comparision between Genetic and Fuzzy algrithm}
+		To solve the unit commitment problem; the first one uses the genetic algorithm. This strategy takes into account the advantage of the genetic algorithm speed in solving problems having a fairly complex architecture. The second method relies on the use of the fuzzy logic approach. The use of the fuzzy logic approach to solve this problem is depicted to the effectiveness of this optimization method in solving nonlinear difficult problems.\\
+		
+		Evaluate the performance of the Genetic algorithm, we use it to solve the traveling salesman problem.
+		\\
+		Optimization of modern engines is becoming involved because of both the stringent emission norms and the newly found ability to control various parameters in every zone of the map of engines using electronic fuel injection systems, in both steady state and transient conditions.Genetic algorithm and its application to engine optimization when a fitness criterion can be described quantitatively.
+		
+		\par Corresponds to a grading system based on the concept of “Grade”. The fuzzy 
+		logic approach which was applied on the grading system has high efficiency.
+		To sort the population time complexity is O(N log N). The selection time complexity will be O(N).
+		Transforming the population with crossover and mutation operator will usually take O(NL).
+		For fuzzy algorithm time complexity  
+		taken to compute a problem of size n is O(g(n)).
+		g(n) is an asymptotic constant.
+		So fuzzy algorithm have less time complexity then Genetic algorithm hence we can use fuzzy algorithm. 
+		
+		\pagebreak
+
+		\chapter{Related Works}
+		\paragraph{}
+		{\fontfamily{ptm}
+			\linespread{1.5}
+			According to the survey presented by \textbf{Verlag Berlin Heidelberg}network throughput, disk I/O rate. TO achieve a nearly optimum solution this plan
+			applies the hybrid genetic algorithm merge with knapsack problem with multiple
+			fitness. The author claims that the algorithm can obtain the goal of raising resources
+			utilization efficiency and lower energy consumption. The algorithm reduces energy
+			consumption and also increases the utilization of the resources.
+			Reference [22] proposes a genetic based job scheduling approach to load balance the
+			virtual machines in a large scale cloud infrastructure. The author claims that his plan
+			solves the problem of load imbalance and high migration costs. This approach
+			modifies the standard genetic algorithm to obtain the mentioned results. This approach
+			has six steps and stopping condition for the algorithm is if there exists a tree which
+			meets the heat limit requirement.
+			
+			
+				\linespread{1.5}	According to the survey presented by \textbf{Rountree et al.}developed a system based on linear programming
+				that exploits slack using DVS (i.e., slack reclamation). Their linear programming system aims to deliver near-optimal schedules that tightly bound optimal solutions. It incorporated allowable time delays, communication slack,
+				and memory pressure into its scheduling. The linear programming system
+				mainly deals with energy reduction for a given pre-generated schedule with
+				a makespan constraint as in most existing algorithms. In our apprche, the
+				makespan is not a constraint but an objective to optimize.
+				\par Another two scheduling algorithms for bag-of-tasks applications on clusters are proposed in [13]. Tasks in a bag-of-tasks application are typically
+				independent and homogeneous, yet run with different input parameters/files.
+				In [13], deadline constraints are associated with tasks for the purpose of quality control. The two algorithms differ in terms of whether processors in a
+				given computer cluster are time-shared or space-shared. Computer clusters
+				in this paper are composed of homogeneous DVS-enabled processors unlike
+				our approach where processors are heterogeneous.
+				
+				\linespread{1.5}	According to the survey presented by \textbf{Verlag Berlin Heidelberg}proposed a Genetic algorithm based job scheduling in which there is a fitness
+				function which divided into three sub­fitness function and then linear combination of
+				these sub­fitness value is carry out for obtaining the fitness value. This paper uses a
+				pre­migration strategy which is based on three load dimension: CPU utilization,network throughput, disk I/O rate. TO achieve a nearly optimum solution this plan
+				applies the hybrid genetic algorithm merge with knapsack problem with multiple
+				fitness. The author claims that the algorithm can obtain the goal of raising resources
+				utilization efficiency and lower energy consumption. The algorithm reduces energy
+				consumption and also increases the utilization of the resources.
+				Reference [22] proposes a genetic based job scheduling approach to load balance the
+				virtual machines in a large scale cloud infrastructure. The author claims that his plan
+				solves the problem of load imbalance and high migration costs. This approach
+				modifies the standard genetic algorithm to obtain the mentioned results. This approach
+				has six steps and stopping condition for the algorithm is if there exists a tree which
+				meets the heat limit requirement.
+				
+			
+		
+		\chapter{Methodology}
+		\paragraph{}
+		{\fontfamily{ptm}
+			\linespread{1.5}
+			Scheduling  is  the  process  of  allocation  of  limited  resources  to  tasks  over  time.  The  main objective of the scheduling is optimization and hence it can be considered as a decision  making  process.  Job  scheduling  problem  is  a  combinatorial  optimization  problem, that validates the performance of heuristic algorithms and hence it is used in the  manufacturing  systems.  The  major  difficulty  encountered  is  that  not  many  scheduling problems fit into a common description model. This makes it very difficult to  define  a  common  framework  for  scheduling  problems  and  also  to  find  algorithms  which can be applied or adopted to tackle a great variety of problems. In fact, a well working  algorithm  for  problem  A  might  not  work  for  problem  B  inspite  of  slight  variation from problem A. 
+			
+			\par In   this   paper,   we   present   a   Hybrid   algorithm,   based   on   the   Ant   Colony   Optimization (ACO)  efficiently solves the Job scheduling problem,  which  reduces  the  total  execution  time.  Our  approach  is  based  on  heuristic  principles  and  has  the  combined  advantages  of  ACO. 
+			
+			 \chapter{Technology Used}
+			 \paragraph{}
+			 {\fontfamily{ptm}
+			 	\linespread{1.5}
+			 				 	\section{ CloudAnalyst}
+			 				 	This tool separates the simulation experiment set up exercise from a programming exercise and enables a modeller to concentrate on the simulation parameters rather than the technicalities of programming. It also enables the modeller to execute simulations repeatedly with modifications to the parameters quickly and easily. A graphical output of the simulation results enables the results to be analysed more easily and more efficiently and it may also help in quickly highlighting any problems with the performance and accuracy of the simulation logic.
+			 			\pagebreak	 	
+			 	
+			 	\section{ CloudAnalyst Design}
+			 	\paragraph{}
+			 	{\fontfamily{ptm}
+			 			\begin{figure}[h]
+			 			\begin{center}
+			 				\includegraphics[scale=0.59]{cloud.png}\\
+			 			\end{center}
+		 					 		\caption{CloudAnalyst built on top of CloudSim toolkit}
+			 		\end{figure}
+
+		 		\par The CloudAnalyst is built on top of CloudSim tool kit, by extending CloudSim functionality with the introduction of concepts that model Internet and Internet Application behaviours.  
+			
+			 
+				 	\section{ Features of the Simulator}
+		\par There are several highly desirable features of a tool
+		
+		\item \textbf{Ease of use :}Ease of setting up and executing a simulation experiment is the main point of having a simulation tool. The simulator needs to provide an easy to use graphical user interface 
+		Ability to define a simulation with a high degree of configurability.
+\item \textbf{flexibility :}
+		Application depends on many parameters and most of the time the values for those parameters need to be assumed. Therefore it is important to be able to enter and change those parameters quickly and easily and repeat simulations.
+		\item \textbf{Graphical output :}
+		Graphical output in the form of tables and charts is highly desirable to summarise the potentially large amount of statistics that is collected during the simulation.
+		\item \textbf{Repeatability :}
+		he same experiment with the same parameters should produce similar results each time the simulation is executed.Otherwise the simulation becomes just a random sequence of events rather than a controlled experiment.
+		\item \textbf{Ease of extension :}
+		simulating something like the Internet is a complex task and it is unlikely a 100\% realistic simulation framework and a set of input parameters can be achieved in a few attempts.
+		
+		\chapter{Conclusion}
+		\paragraph{}
+		{\fontfamily{ptm}
+			\linespread{1.5}
+			The proposed fuzzy based algorithms appear
+			to have a better performance than the proposed genetic
+			based algorithm
+			But we used genetic algorithm as the basis of our approach and we modify it
+			with the aid of fuzzy theory to reduce the iteration of producing the population. We
+			define two types of chromosomes with different QOS parameters; then with the aid of fuzzy theory we obtain the fitness value of all chromosomes for the mentioned two
+			types. The new approach with the use of fuzzy theory modifies the standard genetic
+			algorithm and improves system performance in terms of execution cost about 45 and
+		total execution time about 50, which are the main goal of this research.
+	
+			\chapter*{References}
+			\begin{enumerate}
+				\addcontentsline{toc}{chapter}{References}
+				\item M. Mezmaz, N. Melab, Y. Kessaci, Y.C. Lee, E.G. Talbi, A.Y.
+				Zomaya, D. Tuyttens, A parallel bi-objective hybrid      
+				metaheuristic for energy-aware scheduling for cloud computing
+				systems, Elsevier, Journal of Parallel and Distributed   
+				Computing, 71(11), 2011, pp. 1497-1508.
+				
+				\item M. Armbrust A. Fox,R. Griffith, A.D. Joseph, R. Katz,
+				A.Konwinski, G. Lee, D. Patterson,A. Rabkin, I. Stoica, M.        
+				Zaharia, "A view of cloud computing." Communications of the     
+				ACM 53(4), 2010, pp. 50-58.
+				
+				\item M.D. Dikaiakos, D. Katsaros, P. Mehra, G. Pallis, A. Vakali,
+				"Cloud computing: distributed internet computing for IT and       
+				scientific research." IEEE Internet Computing, 13(5), 2009, pp.
+				10-13.
+				
+				
+				
+				\item  S.T. Maguluri, R. Srikant, Y. Lei, Stochastic models of load
+				balancing and scheduling in cloud  computing clusters, IEEE      
+				Proceedings (INFOCOM), 2012, pp. 702-710.
+			
+				\item Q. Li and G. Yike, Optimization of Resource Scheduling in
+				Cloud Computing, IEEE SYNASC,2010, pp. 315-320.6. Z.
+				
+				\item .Pooranian Z, A. Harounabadi, M. Shojafar, N. Hedayat, New hybrid algorithm for task.
+				
+				\item H. Zhong, T. Kun, Zh. Xuejie, An approach to optimized resource scheduling algorithm for
+				open­source cloud systems, IEEE ChinaGrid Conference (ChinaGrid), 2010, pp. 124­129.
+				
+				\item N. Cordeschi, M. Shojafar M, E. Baccarelli, Energy­saving self­configuring networked data
+				centers. Computer Networks, 57(17), 2013, pp. 3479–3491.
+				
+				\item D.E. Goldberg and J. H. Holland. "Genetic algorithms and machine learning." Springer, Machine
+				learning, 3(2­3), October 1988, pp 95­99.
+				
+				\item Z. Pooranian, M. Shojafar, J. H. Abawajy, A. Abraham, An efficient meta­heuristic algo­rithm
+				for grid computing, Springer, Journal of Combinatorial Optimization (JOCO), 2013.
+				doi:10.1007/s10878­013­9644­6
+				
+			\end{enumerate}
+\end{document}

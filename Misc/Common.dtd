@@ -1,0 +1,11 @@
+<!ELEMENT Products (Homeproduct-company)+>
+<!ELEMENT Software (Software-company)+>
+<!ELEMENT Software-company (Branch,Manager,totalemployees,Turnover)*>
+<!ELEMENT Homeproduct-company (Branch,Manager,total-sub-branches,Turnover,Type-of-product)*>
+
+<!ELEMENT Branch (#PCDATA) >
+<!ELEMENT Manager (#PCDATA) >
+<!ELEMENT totalemployees (#PCDATA) >
+<!ELEMENT Turnover (#PCDATA) >
+<!ELEMENT total-sub-branches (#PCDATA) >
+<!ELEMENT Type-of-product (#PCDATA) >

@@ -1,0 +1,17 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="https://www.cognizant.com"
+xmlns="https://www.cognizant.com"
+elementFormDefault="qualified">
+
+<xs:element name="employee">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="empno" minOccurs='1' maxOccurs='unbounded'/>
+<xs:element ref="ename" minOccurs='1' maxOccurs='unbounded'/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="empno" type='xs:string'/>
+<xs:element name="ename" type='xs:string'/>
+</xs:schema>

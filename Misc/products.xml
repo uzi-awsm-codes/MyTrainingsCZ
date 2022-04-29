@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<PRODUCTDATA  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="products.xsd">
+
+<PRODUCT>
+<PRODUCTNAME> Barbie Doll </PRODUCTNAME>
+
+<DESCRIPTION> This is a doll for children aged 11 and above</DESCRIPTION>
+<PRICE>200</PRICE>
+
+</PRODUCT>
+</PRODUCTDATA>

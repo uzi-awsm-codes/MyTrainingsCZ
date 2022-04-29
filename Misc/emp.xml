@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<employee xmlns="https://www.cognizant.com"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="https://www.cognizant.com emp.xsd">
+
+<empno>7369</empno> 
+<ename>abc</ename>
+</employee>

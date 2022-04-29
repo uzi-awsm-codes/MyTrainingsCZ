@@ -1,0 +1,56 @@
+<?xml version='1.0' ?>
+<!DOCTYPE HotelDetails [
+<!ELEMENT HotelDetails ( RoomDetails+) >
+<!ELEMENT RoomDetails ( Room ) >
+<!ELEMENT Room ( Type, Rent, Status, (Accessories1 | Accessories2 )*) >
+<!ELEMENT Type (#PCDATA) >
+<!ELEMENT Rent (#PCDATA) >
+<!ELEMENT Status (#PCDATA) >
+<!ELEMENT Accessories1 (#PCDATA) >
+<!ELEMENT Accessories2 (#PCDATA) >
+<!ATTLIST Room no CDATA #REQUIRED>
+] >
+
+<HotelDetails>
+
+	<RoomDetails>
+		<Room >
+		
+		<Type>Single AC</Type>
+		<Rent>500 per day</Rent>
+		<Status>Booked</Status>
+		<Accessories1>TV</Accessories1>
+		<Accessories1>TV</Accessories1>
+		<Accessories2>TV</Accessories2>
+		</Room>
+	</RoomDetails>
+	
+	<RoomDetails>
+		<Room no='102'>
+		<Type>Non AC</Type>
+		<Rent>100 per day</Rent>
+		<Status>Booked</Status>
+		</Room>
+	</RoomDetails>
+	
+	<RoomDetails>
+		<Room no='102'>
+		<Type>Non AC Double </Type>
+		<Rent>300 per day</Rent>
+		<Status>Un Booked</Status>
+		<Accessories1>Tv</Accessories1>
+		</Room>
+	</RoomDetails>
+
+		<RoomDetails>
+		<Room no='101'>
+		<Type>Single AC</Type>
+		<Rent>500 per day</Rent>
+		<Status>Booked</Status>
+		<Accessories2>Phone</Accessories2>
+		</Room>
+	</RoomDetails>
+
+</HotelDetails>	
+		
+		

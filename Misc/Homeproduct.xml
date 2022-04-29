@@ -1,0 +1,11 @@
+<?xml version='1.0' ?>
+<!DOCTYPE Products  SYSTEM  'Common.dtd' >
+<Products>
+<Homeproduct-company>
+	<Branch>Banglore</Branch>
+	<Manager>SomeOne</Manager>
+	<total-sub-branches>200</total-sub-branches>	
+	<Turnover>19.8 lakhs per anam</Turnover>
+	<Type-of-product>Organic Products</Type-of-product>
+</Homeproduct-company>
+</Products>
